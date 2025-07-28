@@ -5,9 +5,9 @@ services:
   online_shop:
     build:
       context: .
-    container_name: online_shop
+    container_name: online-shop
     ports:
-      - "5173:5173"
+      - "80:80"
     restart: always
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:5173/"]
@@ -15,8 +15,8 @@ services:
       timeout: 10s
       retries: 5
     networks:
-      - online_shop
+      - online-shop
 
 networks:
-  online_shop:
+  online-shop:
     driver: bridge
